@@ -1,0 +1,138 @@
+* {  
+    margin: 0;  padding: 0;  box-sizing: border-box;
+    cursor:pointer;
+}
+header{
+    background-color: rgb(230, 212, 248);
+    display:flex;
+    padding: 10px 200px;
+    justify-content: space-around;
+    align-items: center;
+}
+.nombreTienda{
+    font-family: 'Yusei Magic', serif ;
+    font-size:1.5vw;
+}
+.header .navbar{
+    list-style: none;
+    display: flex;
+    gap:40px;
+    font-family: 'Urbanist', 'Comfortaa', sans-serif;
+}
+.header .navbar li{
+    display: inline-block;
+}
+.header .navbar li a{
+    gap:20px;
+    font-size: 1.2vw;
+}
+.header .navbar li a:hover{
+    font-weight: bold;
+}
+
+.header .nav-links{
+    display: flex;
+    gap: 10px;
+}
+.header .nav-links i:hover{
+    transform: scale(1.2);
+}
+
+/* 
+@media(max-width:796px){
+    .menu{
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        margin: 10px 0;
+    }
+} */
+
+/* Main */
+
+main{
+    padding: 10px 300px;
+}
+
+.containerProducts{
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px;
+    text-align: center;
+    font-family:'Figtree', 'Comfortaa', sans-serif;
+    font-size: 1vw;
+    line-height: 1.5;
+
+}
+.product{
+    flex-basis: calc(33% - 20px);
+    padding: 10px;
+}
+.containerProducts .product .containerImg{
+    overflow: hidden;
+}
+.product img{
+    width: 100%;
+    height: auto;
+}
+.product .nameProduct{
+    font-weight: bold;
+    padding: 5px;
+}
+.product img:hover{ 
+    transform: scale(1.5);
+}
+.containerProducts .price{
+    font-weight: bold;
+    padding: 5px;
+}
+.btnProduct{
+    background-color: rgb(230, 212, 248);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: 'Figtree', sans-serif;
+    width: 90%;
+    font-weight: bold;
+}
+.btnProduct:hover{
+    transform: scale(1.1);
+}
+/* 
+
+@media(max-width: 796px){
+    
+    .contenedorProductos{
+        flex-direction: column;
+    }
+    .producto{
+        flex-basis:calc(100%- 20px);
+    }
+    main{
+        margin: 170px 10px 10px 10px;
+    }
+} */
+
+.footer{
+    background-color: rgb(230, 212, 248);
+    display:flex;
+    padding: 10px 200px;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Urbanist','Comfortaa', sans-serif;
+    gap:10px;
+    font-size: 1vw;
+}
+.footer a{
+    text-decoration: none;
+    color:black;
+}
+
+.footer a:hover{
+    font-weight: bold;
+    
+}
+@media(max-width:796px){
+
+}
+
