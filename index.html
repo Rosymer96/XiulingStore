@@ -9,37 +9,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Delius&family=Figtree:ital,wght@0,300..900;1,300..900&family=Patrick+Hand&family=Urbanist:ital,wght@0,510;1,510&family=Yusei+Magic&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/be504bf0cf.js" crossorigin="anonymous"></script>
+    <script src="data.js" defer></script>
+    <script src="header.js" defer></script>
+
     
 </head>
 <body>
     <header class="header">
-        <div class="nombreTienda">XIULING STORE</div>
-        <nav>
-            <ul class="navbar">
+        <div class="storeName">XIULING STORE</div>
+        <nav class="navbar">
+            <div class="menuToggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <ul class="menu">
                 <li><a>Inicio</a></li>
                 <li><a>Joyas</a></li>
                 <li><a>Sale</a></li>
             </ul>
+            <div class="navLinks">
+                <a><i class="fa-solid fa-user"></i></a>
+                <a><i class="fa-solid fa-magnifying-glass"></i></a>
+                <a><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
         </nav>
-        <div class="nav-links">
-            <a><i class="fa-solid fa-user"></i></a>
-            <a><i class="fa-solid fa-magnifying-glass"></i></a>
-            <a><i class="fa-solid fa-cart-shopping"></i></a>
-        </div>
+        
     </header>
 
     <main>
-        <div class="containerProducts">
-            <div class="product">
-                <div class="containerImg">
-                    <img src="./Imagenes/imagen1.jpg">
-                </div>
-                <h3 class="nameProduct">Duo de aretes</h3>
-                <p class="descriptionroduct">Dúo de aretes bitono en oro y platino con piedra fucsia</p>
-                <p class="price">€ 25</p>
-                <button class="btnProduct">Agregar al carrito</button>
-            </div>
-        </div>
+        
     </main>
     <footer class="footer">
         <span>Copyright©2025</span>
