@@ -59,15 +59,17 @@ for(let product of products){
 
     //Añadir el evento a los btn creando un array de objetos seleccionados solo con el id, nombre y precio:
   let selectedProducts=[];
+  let $shoppingCar = document.querySelector('.shoppingCar');
+  let $totalPrice = document.querySelector('.totalPrice');
 
   let $btnProducts = document.querySelectorAll('.btnProduct');
   for(let $btnProduct of $btnProducts){
       $btnProduct.addEventListener('click', pushProduct);
   }
   function pushProduct(e){
-    console.log(e);
+    // console.log(e);
       let id = parseInt(e.target.id);
-      // Utilizando el e.target.id ya no es necesario esto:
+      // Utilizando el e.target.id ya no es necesario esto(he borrado el id oculto en el productPill):
       // let selectedProduct =e.target.closest('.product');
       // if(selectedProduct){
       //   let id = parseInt(selectedProduct.querySelector('.id').textContent); 
@@ -84,14 +86,26 @@ for(let product of products){
             price: product.price,
             stock: product.stock,
           });
-        } else{
+        } else if(existedProduct.stock <= existedProduct.quantity){
+            alert('Este producto no cuenta con stock suficiente.');
+        }
+        else{
           existedProduct.quantity += 1;
         }
         break;
       }
     }
-        console.log(selectedProducts);
+  console.log(selectedProducts);
+
+  $shoppingCar.innerHTML = ' ';
+
+  for (let selectedProduct of selectedProducts ){
+      $selectedProduct = document.createElement('div');
+      $shoppingCar.appendChild($selectedProduct);
+      $selectedProduct.textContent = selectedProduct.name + ' x ' + selectedProduct.quantity;
+      $totalPrice.textContent = selectedProducts.reduce((acc, selectedProduct)=> acc + (selectedProduct.price * selectedProduct.quantity), 0);
   }
+  }; 
     
   
 
@@ -116,10 +130,11 @@ for(let product of products){
       //     existedProduct.counter += 1;
       //   }
       
-    
+//Crear dinamicamente los div que se añaden al carrito de compras:
 
 
     
 
 
-   
+    
+
