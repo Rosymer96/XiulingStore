@@ -7,6 +7,8 @@
 
 .header{
     background-color: rgb(230, 212, 248);
+}
+.navbar-container{
     padding: 10px 20vw;
     display: flex;
     justify-content: space-between;
@@ -47,9 +49,39 @@
     transform: scale(1.2);
 }
 
+/* Carrito de compras */
+
+.shoppingCarContainer{
+    display: none;
+    flex-direction:column;
+    position: fixed;
+    background-color: white;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: calc(20vw - 10px);
+}
+.shoppingCarContainer.active{
+    display:flex;
+}
+
+.shoppingPill{
+    font-size: 1vw;
+    font-family: 'Urbanist', sans-serif;
+    line-height: 1.5;
+    text-align: center;
+    font-weight: bold;
+    padding: 1vw;
+}
+.btnShoppingCar{
+    margin: 5px 0;
+}
+.btnNone{
+    display: none;
+}
 
 @media (max-width:796px){
-    .header{
+    .navbar-container{
         padding: 2vw 3vw;
     }
     .storeName{
@@ -58,37 +90,58 @@
     .menu{
         display: none;
         flex-direction:column;
-        position: relative;
-        z-index: 1000;
-        top: 50px;
-        width: 25%;
+        position: fixed;
+        width: calc(50% - 50px);
+        top:50px;
+        right: 240px;
         background-color: white;
-        padding: 10px;
+        margin: 10px;
         border-radius: 5px;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        font-size: 3vw;
+        text-align: center;
+        gap:0;
+        z-index: 1000;
     }
     .menu.active{
         display:flex;
-        position:fixed;
     }
     .menu li{
-        padding: 10px;
+        padding: 10px;  
+        margin: 5px 10px;
+        /* background-color: rgb(244, 244, 244);  
+        border-radius:5px; */
     }
+    
     .menuToggle{
         display: inline;
         padding: 1vw;
+        font-size: 5vw;
     }
     .navbar{
         width: 50%;
         display: flex;
         justify-content: end;
         gap:2vw;
-        font-size: 3vw;
+        font-size: 5vw;
     }
+
     .menuToggle:active,
     .menuToggle:focus {
-        border:solid black 2px;
+        outline:solid black 2px;
         border-radius: 10%;
+    }
+    .shoppingCarContainer{
+        position: relative;
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+    }
+    .shoppingPill{
+        font-size: 3vw;
+    }
+    .shoppingPill .btnShoppingCar{
+        font-size: 3vw;
     }
 }
 
@@ -103,20 +156,22 @@ main{
 .productsContainer{
     display: flex;
     flex-wrap: wrap;
-    gap:10px;
     text-align: center;
     font-family:'Figtree', 'Comfortaa', sans-serif;
     font-size: 1vw;
     justify-content: center;
 }
+.product-pill{
+    flex-basis: 33% ;
+    padding:10px;
+}
+
 .product{
     overflow: hidden;
-    flex-basis: calc(33% - 5px);
     padding: 10px;
     background-color: rgb(250, 255, 255);
     border-radius:5px;
     font-size: 1vw;
-
 }
 .product:hover{
     transform: scale(1.05);
@@ -140,7 +195,7 @@ main{
     font-weight: bold;
     padding: 5px;
 }
-.btnProduct{
+.btnProduct, .btnShoppingCar{
     background-color: rgb(230, 212, 248);
     border: 1px solid black;
     border-radius: 5px;
@@ -156,17 +211,15 @@ main{
 
 @media(max-width: 796px){
     main{
+        padding: 1vw;
+    }
+    
+    .product-pill{
+        flex-basis: 50%;
         padding: 2vw;
     }
-    .productsContainer{
-        gap:3vw;
-    }
     .product{
-        flex-basis: calc(50% - 3vw);
         font-size: 3vw;
-    }
-    .product:hover{
-        transform: none;
     }
     .product .btnProduct{
         font-size: 3vw;
@@ -197,6 +250,13 @@ main{
     
 }
 @media(max-width:796px){
-
+.footer{
+    font-size: 3vw;
+    padding: 4vw;
+}
+.footer a{
+    display: inline-flex;
+}
 }
 
+/* Carrito de compras */

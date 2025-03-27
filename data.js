@@ -16,24 +16,5 @@ const products = [
     { id: 15, productName: "Aretes Mariposa", src: "./Imagenes/imagen15.jpg", alt: "Aretes Mariposa", description: "Aretes dorados con diseño de mariposa", price: 15, stock: 13 }
 ];
 
-const $main = document.querySelector('main');
-const $productContainer =document.createElement('div');
-$productContainer.classList.add('productsContainer');
-$main.appendChild($productContainer);
 
-for(let product of products){
-    let $product = document.createElement('div');
-    $productContainer.appendChild($product);
-    $product.classList.add('product');
-
-    $product.innerHTML= `
-    <div class= "containerImg">
-      <img class= "imgProduct" src="${product.src}" alt="${product.alt}"/>
-    </div>
-    <h3 class="nameProduct">${product.productName}</h3>
-    <p class="description">${product.description}</p>
-    <p class="price">€${product.price}</p>
-    <button class="btnProduct">Agregar al carrito</button>
-    `
-}
 
