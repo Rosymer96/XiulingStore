@@ -8,7 +8,7 @@ $menuToggle.addEventListener('click', showMenu);
 function showMenu(){
   $menu.classList.toggle('active');
   
-    //Ocultar el menu si se hace click en otro lugar (es decir No en el target)
+    //Ocultar el menu si se hace click en otro lugar.
 
   document.addEventListener('click', function(e){
     if(!$menu.contains(e.target) && !$menuToggle.contains(e.target)){
@@ -64,7 +64,7 @@ for(let $btnProduct of $btnProducts){
     $btnProduct.addEventListener('click', pushProduct);
 }
 function pushProduct(e){
-    console.log(e);
+    //console.log(e);
     let id = parseInt(e.target.dataset.id);
     let existedProduct = selectedProducts.find(selected => selected.id === id);
   for(let product of products){
@@ -86,24 +86,65 @@ function pushProduct(e){
       break;
     }
   }
-console.log(selectedProducts);
+//console.log(selectedProducts);
+renderShoppingCar();
+}
 
-$shoppingCar.innerHTML = ' ';
+function renderShoppingCar(){
+  $shoppingCar.innerHTML = ' ';
 
-for (let selectedProduct of selectedProducts ){
+  for (let selectedProduct of selectedProducts ){
     $selectedProduct = document.createElement('div');
     $selectedProduct.classList.add('selectedProduct');
-    $shoppingCar.appendChild($selectedProduct);
     $selectedProduct.innerHTML = `
       <div>${selectedProduct.name}</div>
       <div class="btns">
-      <button class="btnRemoveProduct">-</button><p class="quantity">${selectedProduct.quantity}</p><button class="btnAddProduct">+</button>
+      <button class="btnRemoveProduct" data-id=${selectedProduct.id}>-</button><p class="quantity">${selectedProduct.quantity}</p><button class="btnAddProduct" data-id=${selectedProduct.id}>+</button>
       </div>
     `;
-    // selectedProduct.name + ' x ' + selectedProduct.quantity;
+    $shoppingCar.appendChild($selectedProduct);  
     $totalPrice.textContent = selectedProducts.reduce((acc, selectedProduct)=> acc + (selectedProduct.price * selectedProduct.quantity), 0);
+  }; 
+
+//Añadir eventos a los botones de add y remove:
+
+  let $btnAddProducts = document.querySelectorAll('.btnAddProduct');
+  for( let $btnAddProduct of $btnAddProducts){
+    $btnAddProduct.addEventListener('click', addProduct);
+  }
+  let $btnRemoveProducts = document.querySelectorAll('.btnRemoveProduct');
+  for( let $btnRemoveProduct of $btnRemoveProducts){
+    $btnRemoveProduct.addEventListener('click', removeProduct);
+  }
 }
-}; 
+
+function addProduct(e) {
+  let id = parseInt(e.target.dataset.id);
+  let selectedProduct = selectedProducts.find(selectedProduct => selectedProduct.id === id);
+
+  if (selectedProduct.quantity < selectedProduct.stock) {
+    selectedProduct.quantity += 1;
+  } else {
+    alert('Este producto no cuenta con stock suficiente.');
+  }
+
+  renderShoppingCar();
+}
+
+function removeProduct(e) {
+  let id = parseInt(e.target.dataset.id);
+  let selectedProduct = selectedProducts.find(selectedProduct => selectedProduct.id === id);
+
+  if (selectedProduct) {
+      if (selectedProduct.quantity > 1) {
+          selectedProduct.quantity -= 1;
+      } else {
+          selectedProducts = selectedProducts.filter(product => product.id !== id); // Filtramos todos los productos y creamos un nuevo array que asignamos a selectedProducts.
+      }
+  }
+
+  renderShoppingCar();
+}
 
 //Añadir funcionalidad a los botones del carrito de compras:
 

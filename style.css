@@ -92,11 +92,19 @@
     width: 2vw;
     font-size: 1vw;
 }
+.btnRemoveProduct:hover, .btnAddProduct:hover{
+    background-color: rgb(213, 182, 245);
+    font-weight: bold;
+}
 .quantity{
     width: 20px;
 }
 .btnShoppingCar{
     margin: 5px 0;
+}
+.btnShoppingCar:hover{
+    background-color: rgb(213, 182, 245);
+    font-weight: bold;
 }
 .btnNone{
     display: none;
