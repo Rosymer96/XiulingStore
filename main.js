@@ -87,6 +87,7 @@ function pushProduct(e){
     }
   }
 //console.log(selectedProducts);
+$shoppingCarContainer.classList.add('active');
 renderShoppingCar();
 }
 
