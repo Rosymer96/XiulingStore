@@ -27,8 +27,6 @@ function showShoppingCar(){
   $shoppingCarContainer.classList.toggle('active');
 };
 
-
-
 // Creacion de las pildoras con los productos:
 
 const $main = document.querySelector('main');
@@ -64,9 +62,9 @@ for(let $btnProduct of $btnProducts){
     $btnProduct.addEventListener('click', pushProduct);
 }
 function pushProduct(e){
-    //console.log(e);
-    let id = parseInt(e.target.dataset.id);
-    let existedProduct = selectedProducts.find(selected => selected.id === id);
+  //console.log(e);
+  let id = parseInt(e.target.dataset.id);
+  let existedProduct = selectedProducts.find(selected => selected.id === id);
   for(let product of products){
     if(product.id === id){
       if(!existedProduct){
@@ -103,9 +101,15 @@ function renderShoppingCar(){
       <button class="btnRemoveProduct" data-id=${selectedProduct.id}>-</button><p class="quantity">${selectedProduct.quantity}</p><button class="btnAddProduct" data-id=${selectedProduct.id}>+</button>
       </div>
     `;
-    $shoppingCar.appendChild($selectedProduct);  
-    $totalPrice.textContent = selectedProducts.reduce((acc, selectedProduct)=> acc + (selectedProduct.price * selectedProduct.quantity), 0);
-  }; 
+    $shoppingCar.appendChild($selectedProduct);
+  }
+
+  if (selectedProducts.length > 0){
+    $totalPrice.textContent = selectedProducts.reduce((acc, selectedProduct)=> 
+    acc + (selectedProduct.price * selectedProduct.quantity), 0);
+  } else {
+      $totalPrice.textContent = 0;
+  };
 
 //Añadir eventos a los botones de add y remove:
 
@@ -116,7 +120,7 @@ function renderShoppingCar(){
   let $btnRemoveProducts = document.querySelectorAll('.btnRemoveProduct');
   for( let $btnRemoveProduct of $btnRemoveProducts){
     $btnRemoveProduct.addEventListener('click', removeProduct);
-  }
+  };
 }
 
 function addProduct(e) {

@@ -222,24 +222,24 @@
         font-size: 3vw;
     }
     
-.messageOrder{
-    padding: 10px;
-    width: 50%;
-    height: 20%;
-    left:25%;
-    top:33%;
-    z-index: 1000;
-}
+    .messageOrder{
+        padding: 10px;
+        width: 50%;
+        height: 20%;
+        left:25%;
+        top:33%;
+        z-index: 1000;
+    }
 
-.btnCloseMessageOrder{
-    font-size: 3vw;
-    width: 30px;
-    height: 30px;
-}
-.messageThanks{
-    font-size: 3vw;
-    height: 100%;
-}
+    .btnCloseMessageOrder{
+        font-size: 3vw;
+        width: 30px;
+        height: 30px;
+    }
+    .messageThanks{
+        font-size: 3vw;
+        height: 100%;
+    }
 }
 
 /* Main */
@@ -354,6 +354,9 @@ main{
 .footer a{
     display: inline-flex;
 }
+}
+button{
+    color:black !important;
 }
 
 /* Carrito de compras */
