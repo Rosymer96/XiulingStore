@@ -31,6 +31,9 @@
     gap:2vw;
     font-size: 1.2vw;
 }
+.navbar .active{
+    font-weight: bold;
+}
 .menuToggle{
     display: none;
 }
@@ -101,7 +104,7 @@
     font-weight: bold;
 }
 .quantity{
-    width: 20px;
+    width: 25px;
 }
 .btnShoppingCar{
     margin: 5px 0;
@@ -156,25 +159,27 @@
     display:block;
 }
 
-@media (max-width:796px){
+@media (max-width:1200px){
     .navbar-container{
-        padding: 2vw 3vw;
+        padding: 1vw 2vw;
+        align-items: center;
+        height: 70px;
     }
     .storeName{
-        font-size:5vw; ;
+        font-size:4vw; ;
     }
     .menu{
         display: none;
         flex-direction:column;
         position: fixed;
-        width: calc(50% - 50px);
-        top:50px;
-        right: 240px;
+        width: 33%;
+        top: 70px;
+        left: 5px;
         background-color: white;
         margin: 10px;
-        border-radius: 5px;
+        border-radius: 20px;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        font-size: 3vw;
+        font-size: 2vw;
         text-align: center;
         gap:0;
         z-index: 1000;
@@ -192,18 +197,17 @@
     .menuToggle{
         display: inline;
         padding: 1vw;
-        font-size: 5vw;
+        font-size: 3vw;
     }
     .navbar{
         width: 50%;
         display: flex;
         justify-content: end;
         gap:2vw;
-        font-size: 5vw;
+        font-size: 3vw;
     }
 
-    .menuToggle:active,
-    .menuToggle:focus {
+    .menuToggle.active {
         outline:solid black 2px;
         border-radius: 10%;
     }
@@ -212,37 +216,93 @@
         width: 100%;
         margin: 0;
         border-radius: 0;
+        padding: 0 5vw;
     }
-    .shoppingPill{
-        font-size: 3vw;
+    .shoppingPill, .shoppingPill .btnShoppingCar{
+        font-size: 1.8vw;
     }
     .shoppingPill .btnShoppingCar{
-        font-size: 3vw;
+        margin: 5px 100px;
+        width: 35%;
     }
+   
     .btnRemoveProduct, .btnAddProduct{
-        padding: 3px;
         width: 5vw;
         height: 5vw;
-        font-size: 3vw;
+        font-size: 2vw;
+        padding: 0;
+    }
+    .quantity{
+        font-size: 2vw;
+        width:5vw;
     }
     
     .messageOrder{
         padding: 10px;
         width: 50%;
-        height: 20%;
+        height: 15%;
         left:25%;
-        top:33%;
+        top:42,5%;
         z-index: 1000;
     }
 
     .btnCloseMessageOrder{
-        font-size: 3vw;
-        width: 30px;
-        height: 30px;
+        font-size: 2vw;
+        width: 50px;
+        height: 50px;
+    }
+    .messageThanks{
+        font-size: 2vw;
+        height: 100%;
+    }
+}
+@media (max-width:768px){
+    .navbar-container{
+        height: 50px;
+    }
+    .storeName{
+        font-size: 5vw;
+    }
+    .menuToggle, .navbar{
+        font-size: 4vw;
+    }
+
+    .menu{
+        width: 40%;
+        font-size: 2.5vw;
+    }
+   
+    .shoppingPill, .shoppingPill .btnShoppingCar, .quantity, .messageThanks{
+        font-size: 2.5vw;
+    }
+    .messageOrder{
+        padding: 10px;
+        width: 80%;
+        height: 10%;
+        left:10%;
+        top:20%;
+        z-index: 1000;
     }
     .messageThanks{
         font-size: 3vw;
-        height: 100%;
+    }
+}
+@media (max-width:576px){
+    .shoppingPill, .shoppingPill .btnShoppingCar{
+        font-size: 4vw;
+    }
+    .shoppingPill .btnShoppingCar{
+        width: 50%;
+    }
+    .menu{
+        font-size: 4vw;
+    }
+    .messageThanks{
+        font-size: 3.5vw;
+    }
+    .btnCloseMessageOrder{
+        width: 30px;
+        height: 30px;
     }
 }
 
@@ -289,6 +349,9 @@ main{
     font-weight: bold;
     padding: 5px;
 }
+.product .description{
+    padding: 10px 20px;
+}
 .product .imgProduct:hover{ 
     transform: scale(1.5);
 }
@@ -310,23 +373,57 @@ main{
     font-weight: bold;
 }
 
-@media(max-width: 796px){
+@media(max-width: 1200px){
+    main{
+        padding: 1vw;
+    }
+    .product-pill{
+        flex-basis: 33%;
+        padding: 1vw;
+    }
+    .product, .product .btnProduct{
+        font-size: 1.5vw;
+    }
+    .product .description{
+        padding: 10px;
+    }  
+}
+
+@media(max-width: 798px){
+    main{
+        padding: 1vw;
+    }
+    .product-pill{
+        flex-basis: 50%;
+        padding: 1vw;
+    }
+    .product, .product .btnProduct{
+        font-size: 2vw;
+    }
+    .product .description{
+        padding: 1vw 4vw;
+        font-size: 2vw;
+    } 
+}
+
+@media(max-width: 576px){
     main{
         padding: 1vw;
     }
     
     .product-pill{
-        flex-basis: 50%;
+        flex-basis: 100%;
         padding: 2vw;
     }
-    .product{
-        font-size: 3vw;
+    .product, .product .btnProduct, .quantity{
+        font-size: 4vw;
     }
-    .product .btnProduct{
-        font-size: 3vw;
+    .product .description{
+        padding: 0;
+        font-size: 4vw;
     }
-    
-} 
+
+}
 
 .footer{
     display: flex;
@@ -336,7 +433,7 @@ main{
     text-align: center;
     align-items: center;
     font-family: 'Urbanist','Comfortaa', sans-serif;
-    font-size: 1vw;
+    font-size: 1.2vw;
     gap:1vw;
 }
 
@@ -350,15 +447,28 @@ main{
     font-weight: bold;
     
 }
-@media(max-width:796px){
-.footer{
-    font-size: 3vw;
-    padding: 4vw;
+@media(max-width:1200px){
+    .footer{
+        font-size: 1.8vw;
+        height: 60px;
+        padding: 0;
+    }
+    .footer a{
+        display: inline-flex;
+    }
 }
-.footer a{
-    display: inline-flex;
+
+@media(max-width:768px){
+    .footer {
+        font-size: 3vw;
+    }
 }
+@media(max-width:576px){
+    .footer {
+        font-size: 4vw;
+    }
 }
+
 button{
     color:black !important;
 }

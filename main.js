@@ -13,9 +13,11 @@ function showMenu(){
   document.addEventListener('click', function(e){
     if(!$menu.contains(e.target) && !$menuToggle.contains(e.target)){
       $menu.classList.remove('active');
+      $menuToggle.classList.remove('active');
     }  
   });
 };
+$menuToggle.addEventListener('click', ()=> $menuToggle.classList.toggle('active'));
 
 
 //Evento que despliega el carrito de compras al clickear el icono:
